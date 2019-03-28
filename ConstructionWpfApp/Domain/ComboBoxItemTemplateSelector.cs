@@ -13,6 +13,7 @@ namespace ConstructionWpfApp.Domain
     using System.Windows;
     using System.Windows.Controls;
 
+    using ConstructionWpfApp.Helper;
     using ConstructionWpfApp.Properties;
 
     /// <summary>
@@ -55,7 +56,7 @@ namespace ConstructionWpfApp.Domain
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
             var comboBoxItem =
-                VisualTreeHelpers.GetVisualParent<ComboBoxItem>(
+                VisualTreeHelper.GetVisualParent<ComboBoxItem>(
                     container ?? throw new ArgumentNullException(nameof(container)));
             if (comboBoxItem != null)
             {

@@ -11,6 +11,8 @@ namespace ConstructionWpfApp.Domain
 {
     using System;
 
+    using ConstructionWpfApp.Properties;
+
     /// <summary>
     /// The selectable view model.
     /// </summary>

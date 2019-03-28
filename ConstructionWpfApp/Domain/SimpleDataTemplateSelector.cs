@@ -12,6 +12,8 @@ namespace ConstructionWpfApp.Domain
     using System.Windows;
     using System.Windows.Controls;
 
+    using ConstructionWpfApp.Properties;
+
     /// <summary>
     /// The simple data template selector.
     /// </summary>

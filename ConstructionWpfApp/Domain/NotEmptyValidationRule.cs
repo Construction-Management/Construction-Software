@@ -12,6 +12,8 @@ namespace ConstructionWpfApp.Domain
     using System.Globalization;
     using System.Windows.Controls;
 
+    using ConstructionWpfApp.Helper;
+
     /// <summary>
     /// The not empty validation rule.
     /// </summary>

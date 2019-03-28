@@ -12,6 +12,8 @@ namespace ConstructionWpfApp.Domain
     using System;
     using System.ComponentModel;
 
+    using ConstructionWpfApp.Properties;
+
     /// <summary>
     /// The sample dialog view model.
     /// </summary>

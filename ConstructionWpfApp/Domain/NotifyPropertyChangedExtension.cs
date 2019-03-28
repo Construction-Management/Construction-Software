@@ -14,6 +14,8 @@ namespace ConstructionWpfApp.Domain
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
 
+    using ConstructionWpfApp.Properties;
+
     /// <summary>
     /// The notify property changed extension.
     /// </summary>
