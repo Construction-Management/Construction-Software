@@ -277,7 +277,13 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="View\BillingModule\Windows\MainWindow.xaml">
+    <Page Include="Helper\IndeterminateProgressDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BillingModule\UserControls\Home.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BillingModule\Windows\BillingModuleWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -296,10 +302,19 @@
     <Compile Include="Domain\SimpleDataTemplateSelector.cs" />
     <Compile Include="Domain\SimpleDateValidationRule.cs" />
     <Compile Include="Domain\TreeView\MenuItem.cs" />
+    <Compile Include="Helper\ErrorLabelHelper.cs" />
+    <Compile Include="Helper\IndeterminateProgressDialog.xaml.cs">
+      <DependentUpon>IndeterminateProgressDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\PhoneAuthenticationHelper.cs" />
+    <Compile Include="Helper\VisualTreeHelper.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModel\BillingModule\Windows\BillingModuleViewModel.cs" />
-    <Compile Include="View\BillingModule\Windows\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="View\BillingModule\UserControls\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BillingModule\Windows\BillingModuleWindow.xaml.cs">
+      <DependentUpon>BillingModuleWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -332,7 +347,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="View\BillingModule\UserControls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Grpc.Core.1.19.0\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.19.0\build\net45\Grpc.Core.targets')" />

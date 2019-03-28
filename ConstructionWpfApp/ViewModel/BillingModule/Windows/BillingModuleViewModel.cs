@@ -9,16 +9,37 @@
 
 namespace ConstructionWpfApp.ViewModel.BillingModule.Windows
 {
+    using System;
+
     using ConstructionWpfApp.Domain;
+    using ConstructionWpfApp.Properties;
+    using ConstructionWpfApp.View.BillingModule.UserControls;
+    using ConstructionWpfApp.View.BillingModule.Windows;
+
+    using MaterialDesignThemes.Wpf;
 
     /// <summary>
     /// The billing module view model.
     /// </summary>
     public class BillingModuleViewModel
     {
-        public BillingModuleViewModel()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BillingModuleViewModel"/> class.
+        /// </summary>
+        /// <param name="snackBarMessageQueue">
+        /// The snack bar message queue.
+        /// </param>
+        public BillingModuleViewModel([NotNull] ISnackbarMessageQueue snackBarMessageQueue)
         {
-            
+            if (snackBarMessageQueue == null)
+            {
+                throw new ArgumentNullException(nameof(snackBarMessageQueue));
+            }
+
+            this.DemoItems = new[]
+                                 {
+                                     new DemoItem("Home", new Home())
+                                 };
         }
 
         /// <summary>
