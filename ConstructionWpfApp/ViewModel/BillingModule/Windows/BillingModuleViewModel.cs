@@ -14,7 +14,6 @@ namespace ConstructionWpfApp.ViewModel.BillingModule.Windows
     using ConstructionWpfApp.Domain;
     using ConstructionWpfApp.Properties;
     using ConstructionWpfApp.View.BillingModule.UserControls;
-    using ConstructionWpfApp.View.BillingModule.Windows;
 
     using MaterialDesignThemes.Wpf;
 
@@ -38,7 +37,8 @@ namespace ConstructionWpfApp.ViewModel.BillingModule.Windows
 
             this.DemoItems = new[]
                                  {
-                                     new DemoItem("Home", new Home())
+                                     new DemoItem("Home", new Home()),
+                                     new DemoItem("Field Observation Report", new FieldObservationReport()) 
                                  };
         }
 
