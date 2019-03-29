@@ -1,0 +1,40 @@
+﻿<UserControl
+    x:Class="ConstructionWpfApp.View.BillingModule.UserControls.FieldObservationReport"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:domain="clr-namespace:ConstructionWpfApp.Domain"
+    xmlns:helper="clr-namespace:ConstructionWpfApp.Helper"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:local="clr-namespace:ConstructionWpfApp.View.BillingModule.UserControls"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="Auto"
+    Height="Auto"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+
+        <!--  scroll viewer  -->
+        <Style x:Key="ScrollViewerStyle" TargetType="{x:Type ScrollViewer}">
+            <Setter Property="HorizontalScrollBarVisibility" Value="Hidden" />
+            <Setter Property="VerticalScrollBarVisibility" Value="Hidden" />
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid x:Name="Grid">
+        <ScrollViewer
+            x:Name="ScrollViewer"
+            helper:KineticBehaviour.HandleKineticScrolling="True"
+            Style="{StaticResource ScrollViewerStyle}">
+            <StackPanel
+                x:Name="StackPanelForTiles"
+                VerticalAlignment="Center"
+                Orientation="Horizontal" />
+        </ScrollViewer>
+
+    </Grid>
+
+</UserControl>
