@@ -38,7 +38,8 @@ namespace ConstructionWpfApp.ViewModel.BillingModule.Windows
             this.DemoItems = new[]
                                  {
                                      new DemoItem("Home", new Home()),
-                                     new DemoItem("Field Observation Report", new FieldObservationReport()) 
+                                     new DemoItem("Field Observation Report", new FieldObservationReport()),
+                                     new DemoItem("Add Field Observation Report", new AddFieldObservationReport())
                                  };
         }
 
