@@ -26,13 +26,6 @@ namespace ConstructionWpfApp.View.BillingModule.UserControls
     public partial class AddFieldObservationReport : UserControl
     {
         /// <summary>
-        /// The api key.
-        /// </summary>
-        private static string ApiKey = "AIzaSyBUJAUantLj-avPjzyUlB6pXw5sYy3FktM";
-        private static string AuthEmail = "hello@gmail.com";
-        private static string AuthPassword = "helloworld";
-
-        /// <summary>
         /// The open file dialog.
         /// </summary>
         private OpenFileDialog openFileDialog;
@@ -99,20 +92,16 @@ namespace ConstructionWpfApp.View.BillingModule.UserControls
 
             var fieldPerson = new FieldPerson
                                   {
-                                      Email = AuthEmail,
+                                      Email = "helloworld@gmail.com",
                                       Id = "123344",
                                       Name = "Hello World",
                                       Images = image
                                   };
 
-            var fireBaseStorage = new FireBaseStorageLibrary(
-                Properties.Resources.ProjectId,
-                ApiKey,
-                AuthEmail,
-                AuthPassword);
             var fireStoreDb = FireStoreDbContext.GetInstance();
 
-            image.DownloadUrl = fireBaseStorage.AddImageAsync(this.openFileDialog.FileName, fieldPerson.Id).Result;
+            image.DownloadUrl = StaticFireBaseStorageContext.FireBaseStorageLibrary
+                .AddImageAsync(this.openFileDialog.FileName, fieldPerson.Id).Result;
 
             fireStoreDb.AddCollectionDataAsync(fieldPerson, "Root", "Field Observers", "Field", "123344").Wait();
         }

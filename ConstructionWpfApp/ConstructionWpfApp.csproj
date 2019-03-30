@@ -316,6 +316,7 @@
     <Compile Include="GoogleCloudFireStoreLibrary\ConnectFireStore.cs" />
     <Compile Include="GoogleCloudStorageLibrary\FireBaseStorageLibrary.cs" />
     <Compile Include="Helper\ErrorLabelHelper.cs" />
+    <Compile Include="Helper\FireBaseStorageContext.cs" />
     <Compile Include="Helper\FireStoreDbContext.cs" />
     <Compile Include="Helper\IndeterminateProgressDialog.xaml.cs">
       <DependentUpon>IndeterminateProgressDialog.xaml</DependentUpon>
@@ -323,9 +324,12 @@
     <Compile Include="Helper\KineticBehaviour.cs" />
     <Compile Include="Helper\PhoneAuthenticationHelper.cs" />
     <Compile Include="Helper\ExtendedVisualTreeHelper.cs" />
+    <Compile Include="Helper\StaticDbContext.cs" />
+    <Compile Include="Helper\StaticFireBaseStorageContext.cs" />
     <Compile Include="Model\FieldObservation\FieldImages.cs" />
     <Compile Include="Model\FieldObservation\FieldPerson.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="ViewModel\BillingModule\UserControls\FieldObservationViewModel.cs" />
     <Compile Include="ViewModel\BillingModule\Windows\BillingModuleViewModel.cs" />
     <Compile Include="View\BillingModule\UserControls\AddFieldObservationReport.xaml.cs">
       <DependentUpon>AddFieldObservationReport.xaml</DependentUpon>

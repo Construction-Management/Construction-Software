@@ -10,10 +10,13 @@
 namespace ConstructionWpfApp.ViewModel.BillingModule.Windows
 {
     using System;
+    using System.Windows;
 
     using ConstructionWpfApp.Domain;
+    using ConstructionWpfApp.Helper;
     using ConstructionWpfApp.Properties;
     using ConstructionWpfApp.View.BillingModule.UserControls;
+    using ConstructionWpfApp.ViewModel.BillingModule.UserControls;
 
     using MaterialDesignThemes.Wpf;
 
@@ -38,9 +41,22 @@ namespace ConstructionWpfApp.ViewModel.BillingModule.Windows
             this.DemoItems = new[]
                                  {
                                      new DemoItem("Home", new Home()),
-                                     new DemoItem("Field Observation Report", new FieldObservationReport()),
+                                     new DemoItem(
+                                         "Field Observation Report",
+                                         new FieldObservationReport { DataContext = new FieldObservationViewModel() }),
                                      new DemoItem("Add Field Observation Report", new AddFieldObservationReport())
                                  };
+
+            try
+            {
+                StaticFireBaseStorageContext.FireBaseStorageLibrary = FireBaseStorageContext.GetFireBaseStorageLibrary();
+                StaticDbContext.ConnectFireStore = FireStoreDbContext.GetInstance();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Application.Current.Shutdown(-1);
+            }
         }
 
         /// <summary>

@@ -11,11 +11,17 @@ namespace ConstructionWpfApp.View.BillingModule.UserControls
 {
     using System;
     using System.IO;
+    using System.Net;
+    using System.Net.Http;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
 
+    using ConstructionWpfApp.GoogleCloudStorageLibrary;
     using ConstructionWpfApp.Helper;
+    using ConstructionWpfApp.Model.FieldObservation;
 
     using MahApps.Metro.Controls;
     using MahApps.Metro.IconPacks;
@@ -57,16 +63,32 @@ namespace ConstructionWpfApp.View.BillingModule.UserControls
                             };
 
             var grid2 = new Grid();
-            var icon = new PackIconMaterial
-                           {
-                               Name = $"PackIconMaterial{++counter}",
-                               MinWidth = 60,
-                               MinHeight = 60,
-                               Kind = PackIconMaterialKind.Windows,
-                               SpinAutoReverse = true,
-                               SpinDuration = 2
-                           };
-            grid2.Children.Add(icon);
+
+            var fireStoreDb = FireStoreDbContext.GetInstance();
+
+            var person = fireStoreDb.GetCollectionFields<FieldPerson>(
+                "Root",
+                "Field Observers",
+                "Field",
+                "123344");
+
+            using (var webClient = new WebClient())
+            {
+                webClient.DownloadFile(new Uri(person.Images.DownloadUrl), "downloaded.png");
+            }
+
+            var image = new Image
+                            {
+                                Height = 60,
+                                Width = 60,
+                                Stretch = Stretch.Uniform,
+                                HorizontalAlignment = HorizontalAlignment.Center,
+                                VerticalAlignment = VerticalAlignment.Center,
+                                Source = new BitmapImage(
+                                    new Uri(Path.Combine(Directory.GetCurrentDirectory(), "downloaded.png")))
+                            };
+
+            grid2.Children.Add(image);
             tile1.Content = grid2;
 
             tile1.MouseEnter += this.TileOnMouseEnter;
