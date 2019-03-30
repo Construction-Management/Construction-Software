@@ -18,8 +18,6 @@ namespace ConstructionWpfApp.View.BillingModule.UserControls
     using ConstructionWpfApp.Helper;
     using ConstructionWpfApp.Model.FieldObservation;
 
-    using Google.Cloud.Firestore;
-
     using Microsoft.Win32;
 
     /// <summary>
@@ -27,11 +25,6 @@ namespace ConstructionWpfApp.View.BillingModule.UserControls
     /// </summary>
     public partial class AddFieldObservationReport : UserControl
     {
-        /// <summary>
-        /// The filled counter.
-        /// </summary>
-        private int filledCounter;
-        
         /// <summary>
         /// The api key.
         /// </summary>
@@ -75,7 +68,6 @@ namespace ConstructionWpfApp.View.BillingModule.UserControls
             if (this.openFileDialog.ShowDialog() == true)  
             {
                 this.ImageToUpload.Source = new BitmapImage(new Uri(this.openFileDialog.FileName));
-                this.filledCounter++;
             }
         }
 

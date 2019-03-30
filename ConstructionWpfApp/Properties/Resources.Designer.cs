@@ -61,7 +61,7 @@ namespace ConstructionWpfApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to photoupload-aebca-20eeab4979ae.json.
+        ///   Looks up a localized string similar to photoupload-aebca-8aa1457fcca9.json.
         /// </summary>
         internal static string JsonPath {
             get {
