@@ -10,6 +10,8 @@
 namespace ConstructionWpfApp.View.BillingModule.UserControls
 {
     using System;
+    using System.IO;
+    using System.Net;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Media.Imaging;
@@ -39,7 +41,7 @@ namespace ConstructionWpfApp.View.BillingModule.UserControls
         /// <param name="e">
         /// The e.
         /// </param>
-        private void ButtonUploadOnClick(object sender, RoutedEventArgs e)
+        private void ButtonSelectImageOnClick(object sender, RoutedEventArgs e)
         {
             var op = new OpenFileDialog
                          {
@@ -50,9 +52,9 @@ namespace ConstructionWpfApp.View.BillingModule.UserControls
                          };
 
             if (op.ShowDialog() == true)  
-            {  
-                this.ImageToUpload.Source = new BitmapImage(new Uri(op.FileName));  
-            } 
+            {
+                this.ImageToUpload.Source = new BitmapImage(new Uri(op.FileName));
+            }
         }
     }
 }

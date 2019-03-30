@@ -20,6 +20,12 @@ namespace ConstructionWpfApp.Model.FieldObservation
     public class FieldImages
     {
         /// <summary>
+        /// Gets or sets the title.
+        /// </summary>
+        [FirestoreProperty("title")]
+        public string Title { get; set; }
+        
+        /// <summary>
         /// Gets or sets the download url.
         /// </summary>
         [FirestoreProperty("downloadUrl")]

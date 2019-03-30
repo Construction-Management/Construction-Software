@@ -5,46 +5,97 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:local="clr-namespace:ConstructionWpfApp.View.BillingModule.UserControls"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Width="Auto"
     Height="Auto"
     mc:Ignorable="d">
-    <Border BorderBrush="CornflowerBlue" BorderThickness="1">
-        <Grid ShowGridLines="True">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
 
-            <Image
-                x:Name="ImageToUpload"
-                Grid.Row="0"
-                MinWidth="300"
-                MinHeight="300"
-                Margin="15"
-                Stretch="None" />
+        <Border
+            Grid.Column="0"
+            BorderBrush="Teal"
+            BorderThickness="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-            <Button
-                x:Name="ButtonUpload"
-                Grid.Row="1"
-                MinHeight="60"
-                Margin="10"
-                Click="ButtonUploadOnClick">
-                <TextBlock
-                    Margin="5"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Bottom">
-                    <iconPacks:PackIconMaterial
+                <Image
+                    x:Name="ImageToUpload"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    MinWidth="300"
+                    MinHeight="300"
+                    Margin="15"
+                    RenderOptions.BitmapScalingMode="Fant"
+                    SnapsToDevicePixels="True"
+                    Stretch="Uniform" />
+
+                <Button
+                    x:Name="ButtonSelectImage"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    MinHeight="60"
+                    Margin="10"
+                    Click="ButtonSelectImageOnClick">
+                    <TextBlock
+                        Margin="5"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Bottom">
+                        <iconPacks:PackIconMaterial
+                            Width="30"
+                            Height="30"
+                            Margin="0,0,10,-9"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Kind="CursorPointer" />
+                        <Run Text="Select Image" />
+                    </TextBlock>
+                </Button>
+            </Grid>
+        </Border>
+
+        <Border
+            Grid.Column="1"
+            Margin="10,0,10,0"
+            BorderBrush="Blue"
+            BorderThickness="1">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Stretch">
+                <TextBox
+                    x:Name="TextBoxImage"
+                    Margin="15"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Enter Title of the Image"
+                    MaxLength="100"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox
+                    x:Name="TextBlockDescription"
+                    Margin="15"
+                    materialDesign:HintAssist.Hint="Enter Description of the image"
+                    AcceptsReturn="True"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    TextAlignment="Justify"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto" />
+                <Button
+                    x:Name="ButtonUpload"
+                    Margin="15"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+                    ToolTip="Upload Image">
+                    <materialDesign:PackIcon
                         Width="30"
                         Height="30"
-                        Margin="0,0,10,-9"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
                         Kind="Upload" />
-                    <Run Text="Upload Image" />
-                </TextBlock>
-            </Button>
-
-        </Grid>
-    </Border>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
 </UserControl>
