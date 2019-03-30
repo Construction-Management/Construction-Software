@@ -23,15 +23,30 @@ namespace ConstructionWpfApp.GoogleCloudStorageLibrary
     /// </summary>
     public class FireBaseStorageLibrary
     {
-        private static string ProjectId;
+        /// <summary>
+        /// The project id.
+        /// </summary>
+        private static string projectId;
 
-        private static string BucketName;
+        /// <summary>
+        /// The bucket name.
+        /// </summary>
+        private static string bucketName;
 
-        private static string ApiKey;
+        /// <summary>
+        /// The API key.
+        /// </summary>
+        private static string apiKey;
 
-        private static string AuthEmail;
+        /// <summary>
+        /// The Authentication email.
+        /// </summary>
+        private static string authEmail;
 
-        private static string AuthPassword;
+        /// <summary>
+        /// The Authentication password.
+        /// </summary>
+        private static string authPassword;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FireBaseStorageLibrary"/> class.
@@ -50,11 +65,11 @@ namespace ConstructionWpfApp.GoogleCloudStorageLibrary
         /// </param>
         public FireBaseStorageLibrary(string projectId, string apiKey, string authEmail, string authPassword)
         {
-            ProjectId = projectId;
-            BucketName = ProjectId + ".appspot.com";
-            ApiKey = apiKey;
-            AuthEmail = authEmail;
-            AuthPassword = authPassword;
+            FireBaseStorageLibrary.projectId = projectId;
+            bucketName = FireBaseStorageLibrary.projectId + ".appspot.com";
+            FireBaseStorageLibrary.apiKey = apiKey;
+            FireBaseStorageLibrary.authEmail = authEmail;
+            FireBaseStorageLibrary.authPassword = authPassword;
         }
 
         /// <summary>
@@ -71,14 +86,14 @@ namespace ConstructionWpfApp.GoogleCloudStorageLibrary
         /// </returns>
         public async Task<string> GetDownloadUrlAsync(string filePath, string folderName = null)
         {
-            var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
-            var a = await auth.SignInWithEmailAndPasswordAsync(AuthEmail, AuthPassword).ConfigureAwait(false);
+            var auth = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
+            var a = await auth.SignInWithEmailAndPasswordAsync(authEmail, authPassword).ConfigureAwait(false);
 
             // you can use CancellationTokenSource to cancel the upload midway
             var cancellation = new CancellationTokenSource();
             
             var task = new FirebaseStorage(
-                    BucketName,
+                    bucketName,
                     new FirebaseStorageOptions
                         {
                             AuthTokenAsyncFactory = () => Task.FromResult(a.FirebaseToken),
@@ -118,8 +133,8 @@ namespace ConstructionWpfApp.GoogleCloudStorageLibrary
         /// </returns>
         public async Task<string> AddImageAsync(string filePath, string folderName = null)
         {
-            var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
-            var a = await auth.SignInWithEmailAndPasswordAsync(AuthEmail, AuthPassword).ConfigureAwait(false);
+            var auth = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
+            var a = await auth.SignInWithEmailAndPasswordAsync(authEmail, authPassword).ConfigureAwait(false);
 
             // you can use CancellationTokenSource to cancel the upload midway
             var cancellation = new CancellationTokenSource();
@@ -127,7 +142,7 @@ namespace ConstructionWpfApp.GoogleCloudStorageLibrary
             using (var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 var task = new FirebaseStorage(
-                        BucketName,
+                        bucketName,
                         new FirebaseStorageOptions
                             {
                                 AuthTokenAsyncFactory = () => Task.FromResult(a.FirebaseToken),
@@ -168,14 +183,14 @@ namespace ConstructionWpfApp.GoogleCloudStorageLibrary
         /// </returns>
         public async Task DeleteImageAsync(string filePath, string folderName = null)
         {
-            var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
-            var a = await auth.SignInWithEmailAndPasswordAsync(AuthEmail, AuthPassword).ConfigureAwait(false);
+            var auth = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
+            var a = await auth.SignInWithEmailAndPasswordAsync(authEmail, authPassword).ConfigureAwait(false);
 
             // you can use CancellationTokenSource to cancel the upload midway
             var cancellation = new CancellationTokenSource();
 
             var task = new FirebaseStorage(
-                    BucketName,
+                    bucketName,
                     new FirebaseStorageOptions
                         {
                             AuthTokenAsyncFactory = () => Task.FromResult(a.FirebaseToken),
