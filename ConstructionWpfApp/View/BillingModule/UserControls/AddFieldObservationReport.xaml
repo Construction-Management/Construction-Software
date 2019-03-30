@@ -75,7 +75,7 @@
                     MaxLength="100"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox
-                    x:Name="TextBlockDescription"
+                    x:Name="TextBoxDescription"
                     Margin="15"
                     materialDesign:HintAssist.Hint="Enter Description of the image"
                     AcceptsReturn="True"
@@ -88,6 +88,7 @@
                     Margin="15"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
+                    Click="ButtonUploadOnClick"
                     Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
                     ToolTip="Upload Image">
                     <materialDesign:PackIcon

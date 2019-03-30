@@ -314,7 +314,9 @@
     <Compile Include="Domain\SimpleDateValidationRule.cs" />
     <Compile Include="Domain\TreeView\MenuItem.cs" />
     <Compile Include="GoogleCloudFireStoreLibrary\ConnectFireStore.cs" />
+    <Compile Include="GoogleCloudStorageLibrary\FireBaseStorageLibrary.cs" />
     <Compile Include="Helper\ErrorLabelHelper.cs" />
+    <Compile Include="Helper\FireStoreDbContext.cs" />
     <Compile Include="Helper\IndeterminateProgressDialog.xaml.cs">
       <DependentUpon>IndeterminateProgressDialog.xaml</DependentUpon>
     </Compile>

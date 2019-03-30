@@ -170,17 +170,14 @@ namespace ConstructionWpfApp.GoogleCloudFireStoreLibrary
                 throw new ArgumentNullException(nameof(name));
             }
 
-            if (fireStoreDb != null)
+            var documentReference = fireStoreDb?.Document(GetDocumentPath(name));
+
+            if (documentReference == null)
             {
-                var documentReference = fireStoreDb.Document(GetDocumentPath(name));
-
-                if (documentReference == null)
-                {
-                    return;
-                }
-
-                await documentReference.SetAsync(dictionary).ConfigureAwait(false);
+                return;
             }
+
+            await documentReference.SetAsync(dictionary).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -211,17 +208,14 @@ namespace ConstructionWpfApp.GoogleCloudFireStoreLibrary
                 throw new ArgumentNullException(nameof(name));
             }
 
-            if (fireStoreDb != null)
+            var documentReference = fireStoreDb?.Document(GetDocumentPath(name));
+
+            if (documentReference == null)
             {
-                var documentReference = fireStoreDb.Document(GetDocumentPath(name));
-
-                if (documentReference == null)
-                {
-                    return;
-                }
-
-                await documentReference.SetAsync(entity).ConfigureAwait(false);
+                return;
             }
+
+            await documentReference.SetAsync(entity).ConfigureAwait(false);
         }
 
         #endregion
